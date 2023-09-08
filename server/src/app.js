@@ -66,7 +66,6 @@ app.post('/login', async(req, res) => {
         }
 
         const isMatch = await bcrypt.compare(pswd,userEmail.pswd);
-        console.log(isMatch);
         
         if(isMatch) {
             res.status(201).render("loggedin");
