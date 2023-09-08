@@ -69,11 +69,9 @@ body{
 	background: #6d44b8;
 }
 .login{
-	height: 860px;
+	height: 360px;
 	background: #eee;
 	border-radius: 60% / 10%;
-	transform: translateY(-120px);
-	transition: .8s ease-in-out;
 }
 .login label{
 	color: #573b8a;
@@ -98,4 +96,27 @@ body{
 
 .radio label {
     margin: 5px 15px;
+}
+
+p {
+	color: white;
+	font-size: small;
+	margin-left: 50px;
+	margin-top: 30px;
+}
+
+a {
+	text-decoration: none;
+	color: blue;
+}
+
+a:hover {
+	color: black;
+}
+
+.para {
+	color: black;
+	font-size: small;
+	margin-right: 35px;
+	margin-top: 30px;
 }

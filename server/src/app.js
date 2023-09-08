@@ -2,8 +2,8 @@ const express = require('express');
 const path = require('path');
 const hbs = require('hbs');
 require('./db/connection');
-const register = require('./models/registers');
 const Register = require('./models/registers');
+const bcrypt = require('bcryptjs');
 
 const app = express();
 const static_path = path.join(__dirname, '../public');
@@ -24,6 +24,10 @@ app.get('/', (req,res) => {
 app.get('/register', (req, res) => {
     res.render('index');
 });
+
+app.get('/login', (req,res) => {
+    res.render('login');
+})
 
 app.post('/register', async(req,res) => {
     try {
@@ -46,6 +50,30 @@ app.post('/register', async(req,res) => {
         } else {
             res.send('Password is not matching');
         }
+    } catch (error) {
+        res.status(400).send(error.message);
+    }
+});
+
+app.post('/login', async(req, res) => {
+    try {
+        const email = req.body.email;
+        const pswd = req.body.pswd;
+
+        const userEmail = await  Register.findOne({email});
+        if(!userEmail) {
+            return res.send('No user found!');
+        }
+
+        const isMatch = await bcrypt.compare(pswd,userEmail.pswd);
+        console.log(isMatch);
+        
+        if(isMatch) {
+            res.status(201).render("loggedin");
+        } else {
+            res.send("Password is wrong");
+        }
+
     } catch (error) {
         res.status(400).send(error.message);
     }
