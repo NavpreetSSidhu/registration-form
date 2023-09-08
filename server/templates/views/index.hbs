@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="main">
+        <input type="checkbox" id="chk" aria-hidden="true">
+
+        <div class="signup">
+            <form action="/register" method="post"> 
+                <label class="main-label" for="chk" aria-hidden="true">Sign Up</label>
+                <input class="input" type="text" name="firstname" placeholder="First name" required="">
+                <input class="input"  type="text" name="lastname" placeholder="Last name" required="">
+                <input class="input"  type="number" name="phone" placeholder="Phone Number" required="">
+                <input class="input"  type="number" name="age" placeholder="Your Age" required="">
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="gender" required="" value="male">
+                        <span>Male</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" required="" value="female">
+                        <span>Female</span>
+                    </label>
+                </div>  
+                <input class="input"  type="email" name="email" placeholder="Email" required="">
+                <input class="input" type="password" name="pswd" placeholder="Password" required="">
+                <input class="input"  type="password" name="conpswd" placeholder="Confirm Password" required="">
+                <input class="button" type="submit" value="Register"/>
+            </form>
+        </div>
+        <div class="login">
+            <form>
+                <label class="main-label" for="chk" aria-hidden="true">Login</label>
+                <input class="input"  type="email" name="email" placeholder="Email" required="">
+                <input class="input"  type="password" name="pswd" placeholder="Password" required="">
+                <input class="button" type="submit" value="Login"/>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
